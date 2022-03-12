@@ -1,0 +1,55 @@
+.Header__header {
+    padding: 0;
+    box-shadow: 4px 4px 40px 0 rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    height: 64px;
+    align-items: center;
+    background-color: #fff !important;
+}
+
+.Header__fixed {
+    position: fixed;
+    top: 0;
+    right: 18px;
+    width: calc(100% - 248px);
+    z-index: 29;
+    transition: width 0.2s;
+}
+.Header__collapsed {
+    width: calc(100% - 98px);
+}
+
+.ant-layout-header {
+    flex: 0 0 auto;
+    line-height: 64px;
+    background: #001529;
+    padding: 0 !important;
+}
+
+.Header__button {
+    width: 64px;
+    height: 64px;
+    line-height: 64px;
+    text-align: center;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+
+.Header__button:hover {
+    color: #1890ff;
+    background-color: #f9f9fc;
+}
+
+.Header__rightContainer {
+    /*display: -ms-flexbox;*/
+    /*display: flex;*/
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.Header__rightContainer:hover {
+    color: #1890ff;
+    background-color: #f9f9fc;
+}

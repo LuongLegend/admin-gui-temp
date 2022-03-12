@@ -1,0 +1,8 @@
+@media (max-width: 767px) {
+    .Bread__bread {
+        margin-bottom: 12px;
+    }
+}
+.Bread__bread {
+    margin-bottom: 24px;
+}

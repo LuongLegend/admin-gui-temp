@@ -1,14 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { ConfigProvider } from 'antd';
+import vi from 'antd/lib/locale/vi_VN';
+
+import configureStore from './store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <BrowserRouter>
+        <Provider store={configureStore().store}>
+            <PersistGate persistor={configureStore().persistor}>
+                <ConfigProvider locale={vi}>
+                    <App />
+                </ConfigProvider>
+            </PersistGate>
+        </Provider>
+    </BrowserRouter>,
+    document.getElementById('root'),
 );
 
 // If you want to start measuring performance in your app, pass a function

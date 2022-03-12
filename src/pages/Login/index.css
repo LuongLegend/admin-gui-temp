@@ -1,0 +1,18 @@
+.login-btn {
+    width: 100%;
+}
+
+.login-form {
+    border: 1px solid rgb(228, 222, 222);
+    padding: 0.4em 2em 2em !important;
+    border-radius: 20px;
+    width: 400px;
+    background: white;
+    height: fit-content;
+    margin-top: 100px !important;
+}
+
+.login-container {
+    min-height: 100vh;
+    background-color: #eeeeee;
+}

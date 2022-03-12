@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Route, Routes } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import PrivateLayout from './components/PrivateLayout';
+import NotFound from './components/NotFound';
+import Login from './pages/Login';
+import GoogleCallback from './pages/GoogleCallback';
+import routes from './routes';
+import './App.less';
+
+function App({ user }) {
+    return (
+        <Routes>
+            <Route path='/login' element={<Login />} />
+            <Route path='/google/callback' element={<GoogleCallback />} />
+            <Route element={<PrivateLayout user={user} />}>
+                {routes.map((route, index) => {
+                    if (!route.component) return <></>;
+                    return <Route key={index} path={route.path} element={<route.component />} />;
+                })}
+            </Route>
+            <Route path='*' element={<NotFound />} />
+        </Routes>
+    );
 }
 
-export default App;
+App.propTypes = {
+    user: PropTypes.object,
+};
+const mapStateToProps = (state) => {
+    const { user } = state;
+    return { user };
+};
+export default connect(mapStateToProps)(App);
