@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Button, Row, Form, Input, Typography, Divider, Image } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 
-import { callApi } from '../../utils/callApi';
+//import { callApi } from '../../utils/callApi';
 import { getUserInfo } from '../../actions';
 import './index.css';
 import bkgImage from '../../assets/background.jfif';
@@ -20,15 +20,20 @@ const Login = (props) => {
 
     const handleLogin = async (values) => {
         const { username, password } = values;
-        const data = { username, password };
-        const res = await callApi('/login', 'POST', data);
-        if (res && res.success) {
-            const token = res.data;
-            localStorage.setItem('token', token);
-            onGetUser({ name: 'Họ tên' });
-            navigate(-1);
-        }
-        console.log(res);
+        console.log([username, password]);
+        localStorage.setItem('token', 'thisistoken');
+        onGetUser({ name: 'Họ tên' });
+        navigate(-1);
+        //open comment after have api
+        //const data = { username, password };
+        //const res = await callApi('/login', 'POST', data);
+        //if (res && res.success) {
+        //    const token = res.data;
+        //    localStorage.setItem('token', token);
+        //    onGetUser({ name: 'Họ tên' });
+        //    navigate(-1);
+        //}
+        //console.log(res);
         //console.log([username, password]);
     };
 
